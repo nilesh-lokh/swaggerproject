@@ -20,6 +20,13 @@ public class ServiceImpl implements ServiceI {
 	
 		return save;
 	}
+
+	@Override
+	public Employee get1(int id) {
+		
+		Employee employee = red.findById(id).get();
+		return employee;
+	}
 	
 	
 

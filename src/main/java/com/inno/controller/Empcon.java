@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowire;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -37,5 +39,21 @@ public class Empcon {
 		return new ResponseEntity<String>(g,HttpStatus.BAD_REQUEST);
 		
 	}
-
+@GetMapping(value="/get", produces = "application/json")
+	public ResponseEntity<String> ge(@PathVariable Integer i){
+		 Employee employee = serviceImpl.get1(i);
+		
+		if (employee!=null) {
+			
+			String s=" EMPLOYEE INFO:"+employee;
+		return new ResponseEntity<String>(s,HttpStatus.ACCEPTED);
+		
+		}
+		
+		String h="ID NOT AVAILABLE";
+		return new ResponseEntity<String>(h,HttpStatus.BAD_REQUEST);
+		
+	}
+	
+	
 }
