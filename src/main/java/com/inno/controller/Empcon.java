@@ -54,6 +54,9 @@ public class Empcon {
 		return new ResponseEntity<String>(h,HttpStatus.BAD_REQUEST);
 		
 	}
-	
-	
+
+	public ResponseEntity<String> del(){
+		return null;
+		
+	}
 }
